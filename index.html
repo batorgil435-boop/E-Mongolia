@@ -136,7 +136,53 @@ header{height:76px;background:#fff;padding:12px 4%;display:flex;align-items:cent
         <h2>Тавтай морилно уу!</h2><p>Таны цахим үйлчилгээний хувийн мэдээлэл</p>
         <div class="stats"><div><strong>12</strong><span>Үйлчилгээ</span></div><div><strong>0₮</strong><span>Төлбөр</span></div><div><strong>Идэвхтэй</strong><span>Төлөв</span></div></div>
       </section>
-      <div class="user-row"><div class="avatar">👤</div><div><h3>Хэрэглэгч</h3><p style="font-size:13px;color:#8492a6">Хувийн бүртгэлийн хэсэг</p></div></div>
+      <div class="user-row">
+  <div class="avatar">👤</div>
+  <div>
+    <h2 style="margin:0">Battuvshin Bat-Orgil</h2>
+    <p style="font-size:13px;color:#8492a6">Хувийн профайл</p>
+  </div>
+</div>
+
+<div style="background:white;padding:18px;border-radius:15px;margin:20px 0">
+  <h3>Иргэний үнэмлэх</h3>
+
+  <input
+    type="file"
+    id="idCardUpload"
+    accept="image/*"
+    onchange="showIdCard(event)"
+  >
+
+  <div id="idCardPreview" style="margin-top:15px"></div>
+</div>
+
+<script>
+function showIdCard(event) {
+  const file = event.target.files[0];
+  if (!file || !file.type.startsWith("image/")) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const preview = document.getElementById("idCardPreview");
+    preview.innerHTML = "";
+
+    const img = document.createElement("img");
+    img.src = e.target.result;
+    img.style.cssText =
+      "width:100%;max-width:350px;border-radius:12px;cursor:pointer";
+
+    img.onclick = function() {
+      window.open(img.src);
+    };
+
+    preview.appendChild(img);
+  };
+
+  reader.readAsDataURL(file);
+}
+</script>
       <h3 style="margin:8px 0 15px">Миний мэдээлэл</h3>
       <div class="data-grid">
         <div class="data-card" onclick="showRegistration('Иргэний бүртгэл')"><div class="card-icon">👤</div><h3>Иргэний бүртгэл</h3><p>Улсын бүртгэлийн мэдээлэл</p></div>
