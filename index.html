@@ -519,7 +519,11 @@ function searchServices() {
 
     <button class="profile-item">
       <span>📂</span>
-      Төрд байгаа миний мэдээлэл
+      <button class="profile-item"
+onclick="openMyData()">
+  <span>📂</span>
+  Төрд байгаа миний мэдээлэл
+</button>
     </button>
 
     <button class="profile-item">
@@ -575,7 +579,13 @@ function closeProfile() {
   document.getElementById("profilePanel")
     .classList.remove("show");
 }
-</script>
+function openMyData() {
+  document.getElementById("profilePanel")
+    .classList.remove("show");
+
+  document.getElementById("governmentDashboard")
+    .style.display = "block";
+}</script>
 <div id="governmentDashboard" style="
 display:none;position:fixed;inset:0;z-index:3000;
 background:#f5f8fd;overflow-y:auto;color:#24344c;
