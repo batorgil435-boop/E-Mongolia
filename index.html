@@ -6,6 +6,7 @@
 <title>E-Mongolia</title>
   <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" href="./icon-192.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#f5f8fd;color:#202c40;padding-bottom:82px}
@@ -300,6 +301,15 @@ function searchServices(){
 function toggleTheme(){document.body.classList.toggle('dark');if(document.body.classList.contains('dark')){document.body.style.background='#172033';document.body.style.color='#edf3ff'}else{document.body.style.background='#f5f8fd';document.body.style.color='#202c40'}}
 showRegistration('Иргэний бүртгэл');
 closeStateRegistration();
+</script>
+  <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("App ready"))
+      .catch(err => console.log(err));
+  });
+}
 </script>
 </body>
 </html>
