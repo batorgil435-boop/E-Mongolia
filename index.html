@@ -730,6 +730,128 @@ font-family:Arial,sans-serif;">
   </div>
 </div>
 
+
+<div id="stateRegistrationPage" style="
+display:none;
+position:fixed;
+inset:0;
+z-index:4000;
+background:#f5f8fd;
+overflow-y:auto;
+font-family:Arial,sans-serif;
+color:#202c40;">
+
+  <div style="background:white;padding:18px 25px;
+  display:flex;align-items:center;gap:20px">
+    <strong style="color:#0870e8;font-size:23px">
+      e-mongolia
+    </strong>
+    <span style="margin-left:auto">🔍 Хайлт　🔔 Мэдэгдэл　👤</span>
+  </div>
+
+  <div style="display:flex;min-height:75vh">
+
+    <aside style="width:220px;background:white;padding:20px">
+      <div style="line-height:3.5">
+        🏠 Нүүр хуудас<br>
+        📜 Үйлчилгээ авах<br>
+        📰 Мэдээ, мэдээлэл<br>
+        🏛 Төрийн байгууллагууд<br>
+        📚 Хөтөч<br>
+        💼 Ажлын байр
+      </div>
+    </aside>
+
+    <main style="flex:1;padding:25px;min-width:0">
+
+      <button onclick="closeStateRegistration()"
+      style="padding:10px 20px;border:0;
+      background:white;border-radius:20px;cursor:pointer">
+        ← Буцах
+      </button>
+
+      <h3 style="margin:25px 0">
+        Улсын бүртгэлийн мэдээлэл
+      </h3>
+
+      <div style="display:flex;gap:15px;flex-wrap:wrap">
+
+        <div style="background:white;border:1px solid #e1e8f3;
+        border-radius:12px;padding:15px;width:190px">
+          <b>Төрсний бүртгэл</b>
+          <p>👤 Иргэний бүртгэл</p>
+          <p>💍 Гэрлэлт</p>
+          <p>📍 Хаягийн өөрчлөлт</p>
+          <p>🛂 Гадаад паспорт</p>
+        </div>
+
+        <div style="background:white;border:1px solid #e1e8f3;
+        border-radius:12px;padding:20px;flex:1;min-width:260px">
+
+          <div style="display:flex;justify-content:space-between;
+          flex-wrap:wrap;gap:10px">
+            <b>Иргэний бүртгэлийн мэдээлэл</b>
+            <button onclick="alert('DEMO: Лавлагааны загвар')"
+            style="background:#0868ed;color:white;border:0;
+            border-radius:20px;padding:10px 16px">
+              Лавлагаа авах
+            </button>
+          </div>
+
+          <hr style="border:0;border-top:1px solid #e5eaf2;
+          margin:20px 0">
+
+          <div style="display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+          gap:22px;font-size:13px">
+
+            <div>Регистрийн дугаар:<br>
+              <b>DEMO00000000</b>
+            </div>
+
+            <div>Иргэний хувийн дугаар:<br>
+              <b>DEMO00000000</b>
+            </div>
+
+            <div>Төрсөн газар:<br>
+              <b>DEMO аймаг</b>
+            </div>
+
+            <div>Бүртгэлийн огноо:<br>
+              <b>DEMO огноо</b>
+            </div>
+
+            <div>Яс үндэс:<br>
+              <b>DEMO</b>
+            </div>
+
+            <div>Ургийн овог:<br>
+              <b>DEMO</b>
+            </div>
+
+            <div>Хүйс:<br>
+              <b>DEMO</b>
+            </div>
+
+            <div>Гэр бүлийн байдал:<br>
+              <b>DEMO</b>
+            </div>
+
+          </div>
+
+          <div style="background:#e5efff;padding:15px;
+          margin:25px -20px -20px;border-radius:0 0 12px 12px">
+            <span style="color:#0868ed;font-size:12px">
+              Мэдээлэл хариуцагч байгууллага
+            </span>
+            <p><b>Улсын бүртгэлийн ерөнхий газар</b></p>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
 <script>
 function openMyData() {
   document.getElementById("profilePanel")
@@ -747,9 +869,13 @@ function closeGovernmentDashboard() {
     .classList.add("show");
 }
 
+
 function showDemoItem(name) {
-  alert(name + "\n\nЭнэ бол сургалтын DEMO мэдээлэл.");
+  document.getElementById("stateRegistrationPage")
+    .style.display = "block";
 }
-</script>
-</body>
-</html>
+
+function closeStateRegistration() {
+  document.getElementById("stateRegistrationPage")
+    .style.display = "none";
+}
