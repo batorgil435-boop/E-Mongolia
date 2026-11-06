@@ -318,7 +318,73 @@ header {
     display: none;
   }
 }
-</style>
+.profile-panel {
+  display: none;
+  position: fixed;
+  top: 75px;
+  right: 12px;
+  width: min(510px, calc(100% - 24px));
+  background: #f7f9fd;
+  border: 1px solid #dce5f2;
+  border-radius: 15px;
+  padding: 18px;
+  z-index: 1000;
+  box-shadow: 0 8px 30px #0002;
+}
+
+.profile-panel.show {
+  display: block;
+}
+
+.profile-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.profile-desc {
+  font-size: 12px;
+  color: #718096;
+  margin-bottom: 18px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.profile-item {
+  background: white;
+  border: 1px solid #dce5f2;
+  border-radius: 13px;
+  min-height: 78px;
+  padding: 13px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-item:hover {
+  border-color: #1672ed;
+  background: #f0f6ff;
+}
+
+.profile-item span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.logout {
+  width: 100%;
+  margin-top: 25px;
+  border: none;
+  border-radius: 30px;
+  background: #0868ed;
+  color: white;
+  padding: 13px;
+  font-size: 15px;
+  cursor: pointer;
+}</style>
 </head>
 
 <body>
@@ -336,7 +402,7 @@ header {
 
   <div class="header-icons">
     <div>☾</div>
-    <div>👤</div>
+    <div onclick="openProfile()">👤</div>
     <div>⠿</div>
     <div>♿</div>
   </div>
@@ -440,5 +506,74 @@ function searchServices() {
 }
 </script>
 
-</body>
+<div class="profile-panel" id="profilePanel">
+
+  <h2 class="profile-title">Профайл</h2>
+
+  <p class="profile-desc">
+    Таны бүртгэлтэй мэдээлэл, үйлчилгээний түүх
+    болон хувийн тохиргоо.
+  </p>
+
+  <div class="profile-grid">
+
+    <button class="profile-item">
+      <span>📂</span>
+      Төрд байгаа миний мэдээлэл
+    </button>
+
+    <button class="profile-item">
+      <span>🪪</span>
+      Бичиг баримт
+    </button>
+
+    <button class="profile-item">
+      <span>✉️</span>
+      Үндэсний шуудан
+    </button>
+
+    <button class="profile-item">
+      <span>📋</span>
+      Үйлчилгээний түүх
+    </button>
+
+    <button class="profile-item">
+      <span>📑</span>
+      Талархал
+    </button>
+
+    <button class="profile-item">
+      <span>🔵</span>
+      Баталгаажуулалт
+    </button>
+
+    <button class="profile-item">
+      <span>🗳️</span>
+      Өргөдөл, гомдол
+    </button>
+
+    <button class="profile-item">
+      <span>⚙️</span>
+      Тохиргоо
+    </button>
+
+  </div>
+
+  <button class="logout" onclick="closeProfile()">
+    ⇥ Системээс гарах
+  </button>
+
+</div>
+
+<script>
+function openProfile() {
+  document.getElementById("profilePanel")
+    .classList.add("show");
+}
+
+function closeProfile() {
+  document.getElementById("profilePanel")
+    .classList.remove("show");
+}
+</script></body>
 </html>
