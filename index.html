@@ -266,8 +266,24 @@ function showRegistration(name){
   content.innerHTML='';
   const header=document.createElement('div');header.className='info-header';
   const heading=document.createElement('h3');heading.textContent=name+' мэдээлэл';
-  const btn=document.createElement('button');btn.className='primary';btn.textContent='Лавлагаа харах';btn.onclick=()=>alert('Энэ сургалтын загварт бодит лавлагаа үүсгэх боломжгүй.');
-  header.append(heading,btn);content.append(header);
+  const btn=document.createElement('button');btn.className='primary';btn.textContent='Лавлагаа харах';btn.onclick=()=>{
+  const preview=document.createElement('div');
+  preview.style.cssText='position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px';
+  preview.innerHTML=`
+    <div style="background:white;color:#222;padding:30px;border-radius:12px;max-width:600px;width:100%;text-align:center">
+      <h2>Иргэний бүртгэлийн лавлагаа</h2>
+      <p>Сургалтын зориулалттай загвар лавлагаа</p>
+      <div style="border:1px solid #ccc;padding:25px;margin:15px 0">
+        <h3>ИРГЭНИЙ БҮРТГЭЛ</h3>
+        <p>Лавлагааны загвар</p>
+        <p>Огноо: 2026.11.07</p>
+        <p>Төлөв: Загвар</p>
+      </div>
+      <button id="closePreview" style="padding:10px 25px">Хаах</button>
+    </div>`;
+  document.body.appendChild(preview);
+  preview.querySelector('#closePreview').onclick=()=>preview.remove();
+};
   const fields=document.createElement('div');fields.className='info-fields';
   entries.forEach(([label,value])=>{const cell=document.createElement('div');cell.className='field';const caption=document.createElement('span');caption.textContent=label;const val=document.createElement('b');val.textContent=value || '—';cell.append(caption,val);fields.append(cell)});
   content.append(fields);
