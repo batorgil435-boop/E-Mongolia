@@ -1,0 +1,8 @@
+{
+  "name": "E-Service Mongolia",
+  "short_name": "E-Service",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
