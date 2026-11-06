@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Монгол цахим үйлчилгээ — Demo</title>
+<title>E-Service Mongolia Demo</title>
 
 <style>
 * {
@@ -14,95 +15,158 @@
 }
 
 body {
-  background: #f5f7fb;
-  color: #26364a;
+  background: #f7f9fd;
+  color: #202c40;
+  padding-bottom: 90px;
 }
 
-header {
+/* TOP INFORMATION */
+.top-info {
   background: white;
-  padding: 18px 7%;
+  border-bottom: 1px solid #e6eaf1;
+  padding: 15px 5%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 10px #0000000d;
-}
-
-.logo {
-  color: #1266b0;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.logo span {
-  color: #26364a;
-}
-
-nav {
-  display: flex;
-  gap: 28px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #34445a;
+  flex-wrap: wrap;
+  gap: 15px;
   font-size: 14px;
 }
 
-.login {
-  background: #1266b0;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 7px;
-  border: none;
+.top-info span {
+  color: #35445b;
+}
+
+/* HEADER */
+header {
+  background: white;
+  padding: 22px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #1769db;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #e34b70;
+  border: 3px solid #1769db;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.header-icons div {
+  background: #eaf1ff;
+  color: #1769db;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
   cursor: pointer;
 }
 
+/* HERO */
 .hero {
-  background: linear-gradient(120deg,#07549d,#1686c9);
-  color: white;
-  padding: 65px 8%;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  margin-bottom: 28px;
-  font-size: 16px;
-}
-
-.search {
-  display: flex;
-  max-width: 650px;
-  background: white;
-  border-radius: 8px;
+  min-height: 650px;
+  padding: 100px 20px 60px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 110%,
+    #d4e7ff 0%, transparent 65%),
+    linear-gradient(180deg,#d9e8ff,#f8fbff);
+  position: relative;
   overflow: hidden;
 }
 
+.hero h1 {
+  max-width: 650px;
+  margin: 0 auto 60px;
+  font-size: 36px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.search {
+  max-width: 850px;
+  margin: auto;
+  height: 85px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(100deg,#2785f4,#8747f4,#22a9ef);
+  border-radius: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.search-inner {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+}
+
+.search-inner span {
+  font-size: 25px;
+  color: #2785e8;
+}
+
 .search input {
-  flex: 1;
-  padding: 18px;
   border: none;
   outline: none;
-  font-size: 15px;
+  width: 100%;
+  font-size: 20px;
+  padding: 15px;
+  background: transparent;
 }
 
-.search button {
-  background: #f5a623;
-  border: none;
-  padding: 0 28px;
-  cursor: pointer;
+.hero-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 270px;
+  opacity: .3;
+  background:
+    linear-gradient(90deg,
+    transparent 5%,#b3d2fa 5% 17%,
+    transparent 17% 24%,#b3d2fa 24% 38%,
+    transparent 38% 60%,#b3d2fa 60% 75%,
+    transparent 75%);
+  clip-path: polygon(
+    0 55%,10% 55%,10% 35%,17% 35%,
+    17% 15%,27% 15%,27% 55%,
+    43% 55%,43% 25%,54% 25%,
+    54% 60%,70% 60%,70% 20%,
+    82% 20%,82% 55%,100% 55%,
+    100% 100%,0 100%);
 }
 
+/* SECTION */
 .container {
-  padding: 45px 8%;
+  max-width: 1200px;
+  margin: 35px auto;
+  padding: 0 20px;
 }
 
-.container h2 {
-  margin-bottom: 25px;
-  font-size: 24px;
+.section-title {
+  font-size: 27px;
+  margin-bottom: 22px;
 }
 
 .cards {
@@ -113,156 +177,265 @@ nav a {
 
 .card {
   background: white;
-  padding: 28px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px #0000000a;
-  border: 1px solid #e8edf3;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 3px 12px #1c365010;
   cursor: pointer;
-  transition: .2s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px #00000012;
+  transform: translateY(-3px);
 }
 
-.card .icon {
-  font-size: 32px;
-  margin-bottom: 18px;
+.card-icon {
+  font-size: 35px;
+  margin-bottom: 15px;
 }
 
 .card h3 {
-  font-size: 17px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .card p {
-  color: #77869a;
+  color: #8290a5;
   font-size: 14px;
-  line-height: 1.6;
 }
 
-.notice {
-  margin: 25px 8%;
-  padding: 14px;
-  background: #fff5dc;
-  color: #755416;
-  border-radius: 7px;
-  font-size: 13px;
-}
-
-footer {
-  background: #123c68;
+/* ORGANIZATIONS */
+.org-banner {
+  margin-top: 35px;
+  padding: 35px;
+  border-radius: 15px;
   color: white;
-  padding: 35px 8%;
-  margin-top: 40px;
-  font-size: 14px;
+  background: linear-gradient(100deg,#063e91,#237ad0);
+  font-size: 25px;
+  font-weight: bold;
 }
 
+/* BOTTOM MENU */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 5px 8px;
+  border-top: 1px solid #e6eaf2;
+  z-index: 10;
+}
+
+.bottom-menu a {
+  text-align: center;
+  text-decoration: none;
+  color: #344154;
+  font-size: 14px;
+  flex: 1;
+}
+
+.bottom-menu .menu-icon {
+  font-size: 27px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.bottom-menu a.active {
+  color: #1769db;
+  border-bottom: 4px solid #1769db;
+  padding-bottom: 8px;
+}
+
+/* MOBILE */
 @media(max-width:750px) {
-  nav { display:none; }
-  .cards { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 27px; }
-  .search button { padding: 0 14px; }
+  .top-info {
+    justify-content: space-around;
+    font-size: 12px;
+  }
+
+  header {
+    padding: 18px 15px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .header-icons {
+    gap: 8px;
+  }
+
+  .header-icons div {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
+  .hero {
+    min-height: 620px;
+    padding-top: 100px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+    margin-bottom: 55px;
+  }
+
+  .search {
+    height: 65px;
+  }
+
+  .search input {
+    font-size: 15px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .card h3 {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+}
+
+@media(max-width:400px) {
+  .top-info {
+    gap: 8px;
+  }
+
+  .header-icons div:nth-child(2) {
+    display: none;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="top-info">
+  <span>For Foreigners</span>
+  <span>Монгол бичгийн хувилбар</span>
+  <span>☁️ -1.4°C</span>
+  <span>ⓢ 3,600₮</span>
+  <span>📅 11 сарын 6</span>
+</div>
+
 <header>
-  <div class="logo">E-SERVICE <span>MONGOLIA</span></div>
+  <div class="logo"><span>e</span> mongolia</div>
 
-  <nav>
-    <a href="#">Нүүр</a>
-    <a href="#services">Үйлчилгээ</a>
-    <a href="#about">Бидний тухай</a>
-  </nav>
-
-  <button class="login" onclick="alert('Туршилтын нэвтрэх хэсэг')">
-    Нэвтрэх
-  </button>
+  <div class="header-icons">
+    <div>☾</div>
+    <div>👤</div>
+    <div>⠿</div>
+    <div>♿</div>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Цахим үйлчилгээний нэгдсэн систем</h1>
-  <p>Төрийн үйлчилгээг нэг дороос, хялбархан аваарай.</p>
+  <h1>
+    Төрийн үйлчилгээ, мэдээллийг нэг дороос...
+  </h1>
 
   <div class="search">
-    <input id="searchInput"
-      placeholder="Үйлчилгээ хайх...">
-    <button onclick="searchServices()">Хайх</button>
+    <div class="search-inner">
+      <span>◉</span>
+      <input
+        id="searchInput"
+        placeholder="Үйлчилгээ, хууль, яам, засгийн газар..."
+        oninput="searchServices()">
+    </div>
   </div>
+
+  <div class="hero-decoration"></div>
 </section>
 
-<div class="notice">
-  ⚠️ Энэ бол сургалтын зориулалттай DEMO сайт.
-  Албан ёсны E-Mongolia систем биш.
-</div>
-
 <section class="container" id="services">
-  <h2>Үйлчилгээний ангилал</h2>
+  <h2 class="section-title">Үйлчилгээний ангилал</h2>
 
   <div class="cards" id="cards">
 
     <div class="card">
-      <div class="icon">👤</div>
+      <div class="card-icon">👤</div>
       <h3>Иргэний мэдээлэл</h3>
-      <p>Иргэний мэдээллийн туршилтын үйлчилгээ.</p>
+      <p>Иргэний мэдээллийн үйлчилгээ</p>
     </div>
 
     <div class="card">
-      <div class="icon">🏠</div>
+      <div class="card-icon">🏠</div>
       <h3>Үл хөдлөх хөрөнгө</h3>
-      <p>Хөрөнгийн үйлчилгээний мэдээлэл.</p>
+      <p>Хөрөнгийн үйлчилгээ</p>
     </div>
 
     <div class="card">
-      <div class="icon">🚗</div>
+      <div class="card-icon">🚗</div>
       <h3>Тээврийн хэрэгсэл</h3>
-      <p>Тээврийн хэрэгслийн үйлчилгээ.</p>
+      <p>Тээврийн хэрэгслийн мэдээлэл</p>
     </div>
 
     <div class="card">
-      <div class="icon">🎓</div>
+      <div class="card-icon">🎓</div>
       <h3>Боловсрол</h3>
-      <p>Боловсролын үйлчилгээний мэдээлэл.</p>
+      <p>Боловсролын үйлчилгээ</p>
     </div>
 
     <div class="card">
-      <div class="icon">💼</div>
+      <div class="card-icon">💼</div>
       <h3>Нийгмийн даатгал</h3>
-      <p>Нийгмийн даатгалын мэдээлэл.</p>
+      <p>Даатгалын мэдээлэл</p>
     </div>
 
     <div class="card">
-      <div class="icon">📄</div>
+      <div class="card-icon">📄</div>
       <h3>Лавлагаа</h3>
-      <p>Төрөл бүрийн лавлагааны загвар.</p>
+      <p>Лавлагааны үйлчилгээ</p>
     </div>
 
   </div>
+
+  <div class="org-banner">
+    🏛 Төрийн байгууллагууд
+  </div>
 </section>
 
-<footer id="about">
-  <h3>E-SERVICE MONGOLIA</h3>
-  <p style="margin-top:12px">
-    Цахим үйлчилгээний сургалтын төсөл © 2026
-  </p>
-</footer>
+<nav class="bottom-menu">
+  <a href="#" class="active">
+    <span class="menu-icon">🏠</span>Нүүр
+  </a>
+  <a href="#services">
+    <span class="menu-icon">📜</span>Үйлчилгээ
+  </a>
+  <a href="#services">
+    <span class="menu-icon">📰</span>Мэдээ
+  </a>
+  <a href="#services">
+    <span class="menu-icon">🏛</span>Байгууллага
+  </a>
+  <a href="#about">
+    <span class="menu-icon">🟦</span>Бусад
+  </a>
+</nav>
 
 <script>
 function searchServices() {
-  let input = document
+  const value = document
     .getElementById("searchInput")
     .value.toLowerCase();
 
-  let cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
+  document.querySelectorAll(".card").forEach(card => {
     card.style.display =
-      card.innerText.toLowerCase().includes(input)
-      ? "block" : "none";
+      card.innerText.toLowerCase().includes(value)
+      ? "" : "none";
   });
 }
 </script>
