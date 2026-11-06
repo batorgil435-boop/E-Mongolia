@@ -139,49 +139,49 @@ header{height:76px;background:#fff;padding:12px 4%;display:flex;align-items:cent
       <div class="user-row">
   <div class="avatar">👤</div>
   <div>
-    <h2 style="margin:0">Battuvshin Bat-Orgil</h2>
+    <h2 style="margin:0">Баттүвшин Бат-Оргилl</h2>
     <p style="font-size:13px;color:#8492a6">Хувийн профайл</p>
   </div>
 </div>
 
-<div style="background:white;padding:18px;border-radius:15px;margin:20px 0">
+<div id="cardBox" style="background:white;padding:18px;border-radius:15px;margin:20px 0">
   <h3>Иргэний үнэмлэх</h3>
-
-  <input
-    type="file"
-    id="idCardUpload"
-    accept="image/*"
-    onchange="showIdCard(event)"
-  >
-
+  <input type="file" id="idCardUpload" accept="image/*">
   <div id="idCardPreview" style="margin-top:15px"></div>
 </div>
 
 <script>
-function showIdCard(event) {
-  const file = event.target.files[0];
+const preview = document.getElementById("idCardPreview");
+const upload = document.getElementById("idCardUpload");
+const saved = localStorage.getItem("myPrivateIdCard");
+
+function showCard(src) {
+  preview.innerHTML = "";
+  const img = document.createElement("img");
+  img.src = src;
+  img.style.cssText = "width:100%;max-width:350px;border-radius:12px;cursor:pointer";
+  img.onclick = () => window.open(src);
+  preview.appendChild(img);
+  upload.style.display = "none";
+}
+
+if (saved) showCard(saved);
+
+upload.onchange = function(e) {
+  const file = e.target.files[0];
   if (!file || !file.type.startsWith("image/")) return;
 
   const reader = new FileReader();
-
-  reader.onload = function(e) {
-    const preview = document.getElementById("idCardPreview");
-    preview.innerHTML = "";
-
-    const img = document.createElement("img");
-    img.src = e.target.result;
-    img.style.cssText =
-      "width:100%;max-width:350px;border-radius:12px;cursor:pointer";
-
-    img.onclick = function() {
-      window.open(img.src);
-    };
-
-    preview.appendChild(img);
+  reader.onload = function(event) {
+    try {
+      localStorage.setItem("myPrivateIdCard", event.target.result);
+      showCard(event.target.result);
+    } catch {
+      alert("Зураг хадгалах зай хүрэлцэхгүй байна.");
+    }
   };
-
   reader.readAsDataURL(file);
-}
+};
 </script>
       <h3 style="margin:8px 0 15px">Миний мэдээлэл</h3>
       <div class="data-grid">
